@@ -7,8 +7,11 @@ import {
   InputNumber,
   Input,
   Loading,
+  Tabbar,
   TextArea
 } from '@nutui/nutui-react-taro'
+import { Cart, Category, Find, Home, User } from '@nutui/icons-react-taro'
+
 import './index.scss'
 
 function Index() {
@@ -70,8 +73,20 @@ function Index() {
           nutuiLoadingIconSize: '40px',
           nutuiLoadingIconColor: '#fa2c19'
         }}>
-        <Loading type="spinner">加载中</Loading>
+        <Loading type="spinner">加载中（fe.ycy88.com）</Loading>
       </ConfigProvider>
+
+      <Tabbar
+        onSwitch={(value) => {
+          console.log(value)
+        }}
+        className="tabbar">
+        <Tabbar.Item title="首页" icon={<Home size={18} />} value={9} />
+        <Tabbar.Item title="分类" icon={<Category size={18} />} />
+        <Tabbar.Item title="发现" icon={<Find size={18} />} />
+        <Tabbar.Item title="购物车" icon={<Cart size={18} />} />
+        <Tabbar.Item title="我的" icon={<User size={18} />} />
+      </Tabbar>
     </View>
   )
 }
